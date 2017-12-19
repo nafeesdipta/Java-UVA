@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class u11492
+{
+  public static void main(String [] args)
+  {
+    Scanner key=new Scanner(System.in);
+    int t=key.nextInt();
+    System.out.println("Lumberjacks:");
+    while(t>0)
+    {
+      int flag1=0;int flag2=0;
+      int [] man=new int [10];
+      for(int i=0;i<man.length;i++)
+      {
+        man[i]=key.nextInt();
+        if(i>0)
+        {
+          if(man[i-1]>man[i])
+          {
+            flag1++;
+          }
+          else if(man[i-1]<man[i])
+          {
+            flag2++;
+          }
+        }
+      }
+      
+      t--;
+    }
+  }
+}

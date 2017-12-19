@@ -1,0 +1,60 @@
+import java.util.*;
+public class Uva673 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Scanner key=new Scanner(System.in);
+        int t=key.nextInt();
+        Stack<Character> a;
+        while(t>0)
+        {
+            int flag=0;            
+            a = new Stack<Character>();
+        String s=key.nextLine();
+       if(key.nextLine().equals(""))
+       {
+           System.out.println("Yes");
+           t--;
+       }
+       else
+       {
+            for (int i = 0; i <s.length(); i++) 
+            {
+            if(s.charAt(i)=='('|| s.charAt(i)=='[')
+            {
+            a.push(s.charAt(i));
+            }
+            else
+            {
+            if(a.empty())
+            {
+                System.out.println("No");
+            flag++;
+            break;
+            }
+            else if(s.charAt(i)==')'&&a.peek()=='(')
+            {
+            a.pop();
+            }
+            else if(s.charAt(i)==']'&&a.peek()=='[')
+            {
+            a.pop();
+            }
+            }
+            }
+        if(a.empty()&&flag!=1)
+        {
+            System.out.println("Yes");
+        }
+        else if(!a.empty())
+        {
+            System.out.println("No");
+        }
+        t--;
+       }
+        }
+    }    
+}

@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class u10783
+{
+  public static void main(String [] args)
+  {
+    Scanner key=new Scanner(System.in);
+      int t=key.nextInt();
+      int x=1;
+      while(t>0)
+      {
+        int i=key.nextInt();
+        int c=key.nextInt();
+        int sum=0;
+        while(i<=c)
+        {
+          if(i%2!=0)
+          {
+            sum=sum+i;
+          }
+          i++;
+        }
+        System.out.println("Case "+x+": "+sum);
+        x++;
+        t--;
+      }
+    }
+  }

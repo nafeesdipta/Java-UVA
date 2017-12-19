@@ -1,0 +1,48 @@
+public class Sieve_fac {
+
+    static int[] prime;
+
+    public static void sieve(int n) {
+        boolean[] flag = new boolean[n];
+        prime = new int[n];
+        for (int i = 3; i <= Math.sqrt(n); i += 2) {
+            if (!flag[i]) {
+                for (int j = i * i; j < n; j += 2 * i) {
+                    flag[j] = true;
+                }
+            }
+        }
+         System.out.println(2);
+        prime[2] = 2;
+        for (int i = 3; i < n; i += 2) {
+            if (!flag[i]) {
+                System.out.println(i);
+                prime[i] = i;
+            }
+        }
+    }
+
+    public static void factor(int n) {
+        for (int i = 1; i < prime.length; i += 1) {
+            if (prime[i] * prime[i] > n) {
+                break;
+            }
+            if (n % prime[i] == 0) {
+                System.out.print(i + " * ");
+                while (n % prime[i] == 0) {
+                    System.out.print(i + " * ");
+                    n=n/prime[i];
+                }
+
+            }
+        }
+        if(n>1)
+            System.out.print(n + " * ");
+    }
+
+    public static void main(String[] args) {
+        sieve(100);
+        factor(65);
+
+    }
+}

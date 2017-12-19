@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class u10035
+{
+  public static void main(String [] args)
+  {
+    Scanner key=new Scanner(System.in);
+    
+    while(key.hasNext())
+    {
+      int k=key.nextInt();int j=key.nextInt();
+      if(k==0 && j==0)
+      {
+        break;
+      }
+      else
+      {
+        int i=0;
+        while(k!=0&&j!=0)
+        {
+          if((k%10)+(j%10)>9)
+          {
+            i++;
+            k=(k/10)+1;
+            j=j/10;
+          }
+          else
+          {
+          k=k/10;
+          j=j/10;
+          }
+        }
+        if(i==0)
+        {
+          System.out.println("No carry operation.");
+        }
+        else if(i==1)
+        {
+          System.out.println(i+" carry operation.");
+        }
+        else if(i>1)
+        {
+        System.out.println(i+" carry operations.");
+        }
+      }
+    }    
+  }
+}
